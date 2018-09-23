@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20180923084912) do
     t.integer  "subject_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index [nil], name: "index_chapters_on_book_id"
+    t.index ["subject_id"], name: "index_chapters_on_subject_id"
   end
 
   create_table "questions", force: :cascade do |t|

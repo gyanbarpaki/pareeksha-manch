@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :questions
+  resources :objective_questions, controller: 'questions', type: 'ObjectiveQuestion'
+
   resources :subjects do
     resources :chapters
   end

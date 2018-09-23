@@ -10,14 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180902102632) do
+ActiveRecord::Schema.define(version: 20180923084912) do
+
   create_table "chapters", force: :cascade do |t|
     t.text     "title"
     t.text     "description"
     t.integer  "subject_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["book_id"], name: "index_chapters_on_book_id"
+    t.index [nil], name: "index_chapters_on_book_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "name"
+    t.string   "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sub_topics", force: :cascade do |t|

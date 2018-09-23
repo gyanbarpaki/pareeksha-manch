@@ -25,8 +25,8 @@ class ChaptersController < ApplicationController
   # POST /chapters
   # POST /chapters.json
   def create
-    book = Book.find(chapter_params[:book_id])
-    @chapter = book.chapters.build(chapter_params)
+    subject = Subject.find(chapter_params[:subject_id])
+    @chapter = subject.chapters.build(chapter_params)
 
     respond_to do |format|
       if @chapter.save
@@ -71,6 +71,6 @@ class ChaptersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def chapter_params
-      params.require(:chapter).permit(:title, :description, :book_id)
+      params.require(:chapter).permit(:title, :description, :subject_id)
     end
 end

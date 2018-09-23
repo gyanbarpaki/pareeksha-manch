@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
   resources :subjects do
-    resources :books
-  end
-
-  resources :books do
     resources :chapters
   end
 

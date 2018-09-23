@@ -10,7 +10,7 @@
 
 <br><br>
 
-<% if @subject.books.any? %>
+<% if @subject.chapters.any? %>
   <h3><%= @subject.name %> Books</h3>
 
   <table>
@@ -24,14 +24,14 @@
     </thead>
 
     <tbody>
-      <% @subject.books.each do |book| %>
+      <% @subject.chapters.each do |subject| %>
         <tr>
-          <td><%= book.title %></td>
-          <td><%= book.description %></td>
-          <td><%= book.author %></td>
-          <td><%= link_to 'Show', book %></td>
-          <td><%= link_to 'Edit', edit_subject_book_path(book.subject, book) %></td>
-          <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= subject.title %></td>
+          <td><%= subject.description %></td>
+          <td><%= subject.author %></td>
+          <td><%= link_to 'Show', subject %></td>
+          <td><%= link_to 'Edit', edit_subject_topic_path(chapter.subject, chapter) %></td>
+          <td><%= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
@@ -40,4 +40,4 @@
 
 <br><br>
 
-<%= link_to 'New Book', new_subject_book_path(@subject.id) %>
+<%= link_to 'New Chapter', new_subject_chapter_path(@subject.id) %>

@@ -1,3 +1,3 @@
 class Subject < ApplicationRecord
-  has_many :books, dependent: :destroy
+  has_many :chapters, dependent: :destroy
 end

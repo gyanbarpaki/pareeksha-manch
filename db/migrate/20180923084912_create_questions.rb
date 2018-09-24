@@ -14,15 +14,9 @@ class CreateQuestions < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-
-    add_column :questions, :subject_id, :integer
-    add_index :questions, :subject_id
   end
 
   def down
-    remove_index :questions, :subject_id
-    remove_column :questions, :subject_id
-
     drop_table :questions
   end
 end

@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20180923084912) do
 
   create_table "chapters", force: :cascade do |t|
-    t.text     "title"
+    t.text     "name"
     t.text     "description"
     t.integer  "subject_id"
     t.datetime "created_at",  null: false
@@ -24,12 +24,23 @@ ActiveRecord::Schema.define(version: 20180923084912) do
   create_table "questions", force: :cascade do |t|
     t.string   "name"
     t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "difficulty",   default: "Medium"
+    t.string   "content"
+    t.string   "solution"
+    t.integer  "subject_id"
+    t.integer  "chapter_id"
+    t.integer  "topic_id"
+    t.integer  "sub_topic_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["chapter_id"], name: "index_questions_on_chapter_id"
+    t.index ["sub_topic_id"], name: "index_questions_on_sub_topic_id"
+    t.index ["subject_id"], name: "index_questions_on_subject_id"
+    t.index ["topic_id"], name: "index_questions_on_topic_id"
   end
 
   create_table "sub_topics", force: :cascade do |t|
-    t.text     "title"
+    t.text     "name"
     t.text     "description"
     t.integer  "topic_id"
     t.datetime "created_at",  null: false
@@ -39,12 +50,13 @@ ActiveRecord::Schema.define(version: 20180923084912) do
 
   create_table "subjects", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "topics", force: :cascade do |t|
-    t.text     "title"
+    t.text     "name"
     t.text     "description"
     t.integer  "chapter_id"
     t.datetime "created_at",  null: false

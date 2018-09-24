@@ -15,6 +15,10 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @question = Question.new
+    @subjects = Subject.all.map { |s| s.name }
+    @chapters = Chapter.all.map { |c| c.title }
+    @topics = Topic.all.map { |t| t.title }
+    @sub_topics = SubTopic.all.map { |st| st.title }
   end
 
   # GET /questions/1/edit
@@ -24,7 +28,12 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
-    @question = Question.new(question_params)
+    @question = Question.new(name: question_params[:name])
+    @question.type = question_params[:type]
+    @question.subject = Subject.find_by_name(question_params[:subject])
+    @question.chapter = Chapter.find_by_name(question_params[:chapter]).id
+    @question.topic = Topic.find_by_name(question_params[:topic]).id
+    @question.sub_topic = SubTopic.find_by_name(question_params[:sub_topic]).id
 
     respond_to do |format|
       if @question.save
@@ -70,9 +79,9 @@ class QuestionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
       if params[:question].nil?
-        params.require(:objective_question).permit(:name, :type)
+        params.require(:objective_question).permit(:name, :type, :subject, :chapter, :topic, :sub_topic)
       else
-        params.require(:question).permit(:name, :type)
+        params.require(:question).permit(:name, :type, :subject, :chapter, :topic, :sub_topic)
       end
     end
 end

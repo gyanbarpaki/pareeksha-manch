@@ -21,6 +21,26 @@
     <%= f.select(:type, ["ObjectiveQuestion"]) %>
   </div>
 
+  <div class="field">
+    <%= f.label :subject %>
+    <%= f.select(:subject, @subjects) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :chapter %>
+    <%= f.select(:chapter, @chapters) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :topic %>
+    <%= f.select(:topic, @topics) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sub_topic %>
+    <%= f.select(:sub_topic, @sub_topics) %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

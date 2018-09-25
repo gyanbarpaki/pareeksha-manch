@@ -23,22 +23,22 @@
 
   <div class="field">
     <%= f.label :subject %>
-    <%= f.select(:subject, @subjects) %>
+    <%= select_tag "subject", options_from_collection_for_select(@subjects, "id", "name", @question.subject.id) %>
   </div>
 
   <div class="field">
     <%= f.label :chapter %>
-    <%= f.select(:chapter, @chapters) %>
+    <%= select_tag "chapter", options_from_collection_for_select(@chapters, "id", "name", @question.chapter.id) %>
   </div>
 
   <div class="field">
     <%= f.label :topic %>
-    <%= f.select(:topic, @topics) %>
+    <%= select_tag "topic", options_from_collection_for_select(@topics, "id", "name", @question.topic.id) %>
   </div>
 
   <div class="field">
     <%= f.label :sub_topic %>
-    <%= f.select(:sub_topic, @sub_topics) %>
+    <%= select_tag "sub_topic", options_from_collection_for_select(@sub_topics, "id", "name", @question.sub_topic.id) %>
   </div>
 
   <div class="actions">

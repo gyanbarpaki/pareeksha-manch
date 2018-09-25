@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
-    @questions = Question.objectives
+    @questions = Question.all
   end
 
   # GET /questions/1
@@ -15,14 +15,23 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @question = Question.new
-    @subjects = Subject.all.map { |s| s.name }
-    @chapters = Chapter.all.map { |c| c.title }
-    @topics = Topic.all.map { |t| t.title }
-    @sub_topics = SubTopic.all.map { |st| st.title }
+    @subjects = Subject.all
+    @chapters = Chapter.all
+    @topics = Topic.all
+    @sub_topics = SubTopic.all
   end
 
   # GET /questions/1/edit
   def edit
+    @question = Question.where(id: params[:id]).first
+    # @selected_subject = @question.subject.name
+    # @selected_chapter = question.chapter.name
+    # @selected_topic = question.topic.name
+    # @selected_sub_topic = question.sub_topic.name
+    @subjects = Subject.all
+    @chapters = Chapter.all
+    @topics = Topic.all
+    @sub_topics = SubTopic.all
   end
 
   # POST /questions
@@ -30,10 +39,10 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(name: question_params[:name])
     @question.type = question_params[:type]
-    @question.subject = Subject.find_by_name(question_params[:subject])
-    @question.chapter = Chapter.find_by_name(question_params[:chapter]).id
-    @question.topic = Topic.find_by_name(question_params[:topic]).id
-    @question.sub_topic = SubTopic.find_by_name(question_params[:sub_topic]).id
+    @question.subject = Subject.find(params[:subject])
+    @question.chapter = Chapter.find(params[:chapter])
+    @question.topic = Topic.find(params[:topic])
+    @question.sub_topic = SubTopic.find(params[:sub_topic])
 
     respond_to do |format|
       if @question.save
@@ -50,7 +59,13 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1.json
   def update
     respond_to do |format|
-      if @question.update(question_params)
+      if @question.update(name: question_params[:name], type: question_params[:type])
+        @question.subject = Subject.find(params[:subject])
+        # @question.chapter = Chapter.where(name: question_params[:chapter]).first
+        # @question.topic = Topic.where(name: question_params[:topic]).first
+        # @question.sub_topic = SubTopic.where(name: question_params[:sub_topic]).first
+        @question.save
+
         format.html { redirect_to @question, notice: 'Question was successfully updated.' }
         format.json { render :show, status: :ok, location: @question }
       else
@@ -71,17 +86,13 @@ class QuestionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_question
-      @question = Question.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_question
+    @question = Question.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def question_params
-      if params[:question].nil?
-        params.require(:objective_question).permit(:name, :type, :subject, :chapter, :topic, :sub_topic)
-      else
-        params.require(:question).permit(:name, :type, :subject, :chapter, :topic, :sub_topic)
-      end
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def question_params
+    params.require(:question).permit(:name, :type)
+  end
 end

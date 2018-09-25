@@ -8,8 +8,9 @@ class Question < ApplicationRecord
   belongs_to :topic, class_name: 'Topic', foreign_key: 'topic_id'
   belongs_to :sub_topic, class_name: 'SubTopic', foreign_key: 'sub_topic_id'
 
+  self.inheritance_column = :_type_disabled
+
   validates :name, presence: true
-  validates :type, presence: true
 
   def self.objectives
     where(type: 'ObjectiveQuestion')

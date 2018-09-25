@@ -26,7 +26,7 @@
     <tbody>
       <% @subject.chapters.each do |subject| %>
         <tr>
-          <td><%= subject.title %></td>
+          <td><%= subject.name %></td>
           <td><%= subject.description %></td>
           <td><%= subject.author %></td>
           <td><%= link_to 'Show', subject %></td>

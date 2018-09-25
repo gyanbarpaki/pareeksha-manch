@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %>
-    <%= f.text_area :title %>
+    <%= f.label :name %>
+    <%= f.text_area :name %>
   </div>
 
   <div class="field">
@@ -22,10 +22,6 @@
   </div>
 
   <%= f.hidden_field :subject_id, value: params[:subject_id] %>
-<!--   <div class="field">
-    <%#= f.label :subject_id %>
-    <%#= f.select :subject_id, options_for_select(Book.all.collect{ |b| [b.title, b.id] }, chapter.subject_id) %>
-  </div> -->
 
   <div class="actions">
     <%= f.submit %>

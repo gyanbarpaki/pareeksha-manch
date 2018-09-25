@@ -1,18 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @sub_topic.title %>
+  <strong>Name:</strong>
+  <%= @sub_topic.name %>
 </p>
 
 <p>
   <strong>Description:</strong>
   <%= @sub_topic.description %>
-</p>
-
-<p>
-  <strong>Topic:</strong>
-  <%= @sub_topic.topic.title %>
 </p>
 
 <%= link_to 'Edit', edit_sub_topic_path(@sub_topic) %> |

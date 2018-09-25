@@ -23,22 +23,22 @@
 
   <div class="field">
     <%= f.label :subject %>
-    <%= select_tag "subject", options_from_collection_for_select(@subjects, "id", "name", @question.subject.id) %>
+    <%= select_tag "subject", options_from_collection_for_select(@subjects, "id", "name", @question.subject.nil? ? 1 : @question.subject.id) %>
   </div>
 
   <div class="field">
     <%= f.label :chapter %>
-    <%= select_tag "chapter", options_from_collection_for_select(@chapters, "id", "name", @question.chapter.id) %>
+    <%= select_tag "chapter", options_from_collection_for_select(@chapters, "id", "name", @question.chapter.nil? ? 1 : @question.chapter.id) %>
   </div>
 
   <div class="field">
     <%= f.label :topic %>
-    <%= select_tag "topic", options_from_collection_for_select(@topics, "id", "name", @question.topic.id) %>
+    <%= select_tag "topic", options_from_collection_for_select(@topics, "id", "name", @question.topic.nil? ? 1 : @question.topic.id) %>
   </div>
 
   <div class="field">
     <%= f.label :sub_topic %>
-    <%= select_tag "sub_topic", options_from_collection_for_select(@sub_topics, "id", "name", @question.sub_topic.id) %>
+    <%= select_tag "sub_topic", options_from_collection_for_select(@sub_topics, "id", "name", @question.sub_topic.nil? ? 1 : @question.sub_topic.id) %>
   </div>
 
   <div class="actions">

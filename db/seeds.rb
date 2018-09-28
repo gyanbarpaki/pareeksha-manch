@@ -20,3 +20,5 @@
     end
   end
 end
+
+User.create!(name: "Test Login", email: "test@123", password: "test@123")

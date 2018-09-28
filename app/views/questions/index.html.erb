@@ -6,7 +6,7 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Question</th>
       <th>Type</th>
       <th>Subject</th>
       <th>Chapter</th>
@@ -19,7 +19,7 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
-        <td><%= question.name %></td>
+        <td><%= question.content %></td>
         <td><%= question.type %></td>
         <td><%= question.subject.name %></td>
         <td><%= question.chapter.name %></td>

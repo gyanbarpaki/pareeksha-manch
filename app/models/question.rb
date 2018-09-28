@@ -10,7 +10,7 @@ class Question < ApplicationRecord
 
   self.inheritance_column = :_type_disabled
 
-  validates :name, presence: true
+  validates :content, presence: true
 
   def self.objectives
     where(type: 'ObjectiveQuestion')

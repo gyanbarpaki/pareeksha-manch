@@ -15,4 +15,11 @@ class Question < ApplicationRecord
   def self.objectives
     where(type: 'ObjectiveQuestion')
   end
+
+  after_save do |qns|
+    qns.subject = Subject.default if qns.subject.nil?
+    qns.chapter = Chapter.default if qns.chapter.nil?
+    qns.topic = Topic.default if qns.topic.nil?
+    qns.sub_topic = SubTopic.default if qns.sub_topic.nil?
+  end
 end

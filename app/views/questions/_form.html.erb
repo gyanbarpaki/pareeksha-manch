@@ -22,6 +22,16 @@
   </div>
 
   <div class="field">
+    <%= f.label :difficulty %>
+    <%= f.select(:difficulty, difficulty_levels) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :solution %>
+    <%= f.text_area :solution %>
+  </div>
+
+  <div class="field">
     <%= f.label :subject %>
     <%= select_tag "subject", options_from_collection_for_select(@subjects, "id", "name", @question.subject.nil? ? 1 : @question.subject.id) %>
   </div>

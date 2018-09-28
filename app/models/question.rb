@@ -1,5 +1,5 @@
 class Question < ApplicationRecord
-  attribute :difficulty, :string, default: "Medium"
+  attribute :difficulty, :string, default: 'Medium'
   attribute :content, :string
   attribute :solution, :string
 

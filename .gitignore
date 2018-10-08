@@ -11,3 +11,5 @@ vm_provisioning/ssh/id_rsa
 vm_provisioning/ssh/id_rsa.pub
 storage/
 public/assets
+logs.txt
+config/initializers/devise.rb

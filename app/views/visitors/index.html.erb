@@ -1,1 +1,6 @@
-<center><h1>Welcome to Pareeksha Manch!</h1></center>
+<center>
+  <h1>Welcome to Pareeksha Manch!</h1>
+  <% if !user_signed_in? %>
+    <%= link_to 'Login', new_user_session_path, class: 'btn btn-success btn-large' %>
+  <% end %>
+</center>

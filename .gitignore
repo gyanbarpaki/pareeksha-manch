@@ -9,3 +9,6 @@ log/*.log
 tmp/
 vm_provisioning/ssh/id_rsa
 vm_provisioning/ssh/id_rsa.pub
+public/assets
+logs.txt
+config/initializers/devise.rb

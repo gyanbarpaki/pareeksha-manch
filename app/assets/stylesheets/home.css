@@ -1,0 +1,68 @@
+body , main{
+    margin: 0px;
+    background-color: #f6f6f6;
+  }
+  main{
+    margin-top: 57px;
+  }
+/*========= LOGIN PAGE CSS ============================*/
+
+  .vertical-center{
+    display: flex;
+    align-items: center;
+  }
+  .authform{
+    max-width: 100%;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+  }
+  .authform form{
+    border: none;
+    background-color: transparent;
+    box-shadow: none;
+  }
+  .authform h3{
+    font-weight: bold;
+  }
+  .authform p{
+    margin: 0px;
+  }
+  .authform h3, .authform p{
+    color: #173378;
+  }
+  .authform .form-group{
+    margin-top: 8%;
+  }
+  .authform .form-group input{
+    border-radius: 50px;
+    height: 45px;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.16),0 2px 5px 0 rgba(0,0,0,.12);
+  }
+  .authform .btn-primary.login-btn{
+    width: 100px;
+    height: 40px;
+    background-color: #173378;
+  }
+  .authform a{
+    color: #3e4244;
+    text-decoration: none;
+  }
+  .authform a:hover{
+    color: #3e4244;
+    background-color: transparent;
+  }
+@media screen and (max-width: 768px) {
+  .authform{
+    padding-top: 0px;
+  }
+  .authform form{
+    padding: 0px;
+  }
+  .authform .vertical-center{
+    display: unset;
+  }
+  .authform .forgot_pwd_link{
+    margin-top: 15px;
+  }
+}

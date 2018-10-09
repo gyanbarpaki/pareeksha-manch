@@ -33,6 +33,7 @@ User.create!(name: "Test Login", email: "test@123", password: "test@123")
     option1: "Qns #{q} Option 1",
     option2: "Qns #{q} Option 2",
     option3: "Qns #{q} Option 3",
-    option4: "Qns #{q} Option 4"
+    option4: "Qns #{q} Option 4",
+    correct_option: "Qns #{q} Option 2"
   )
 end

@@ -12,6 +12,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'tzinfo-data' # , platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 1.3.0'
+gem 'roo', '~> 2.7.0'
 
 group :development do
   gem 'better_errors'
@@ -21,6 +22,7 @@ group :development do
   gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console'
+  gem 'pry'
 end
 
 group :development, :test do

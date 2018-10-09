@@ -23,16 +23,20 @@ ActiveRecord::Schema.define(version: 20180923084912) do
 
   create_table "questions", force: :cascade do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "qns_type",     default: "Objective"
     t.string   "difficulty",   default: "Medium"
     t.string   "content"
     t.string   "solution"
+    t.string   "option1"
+    t.string   "option2"
+    t.string   "option3"
+    t.string   "option4"
     t.integer  "subject_id"
     t.integer  "chapter_id"
     t.integer  "topic_id"
     t.integer  "sub_topic_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.index ["chapter_id"], name: "index_questions_on_chapter_id"
     t.index ["sub_topic_id"], name: "index_questions_on_sub_topic_id"
     t.index ["subject_id"], name: "index_questions_on_subject_id"

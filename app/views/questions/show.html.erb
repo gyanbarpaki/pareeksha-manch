@@ -7,12 +7,32 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @question.type %>
+  <%= @question.qns_type %>
 </p>
 
 <p>
   <strong>Difficulty:</strong>
   <%= @question.difficulty %>
+</p>
+
+<p>
+  <strong>Option1:</strong>
+  <%= @question.option1 %>
+</p>
+
+<p>
+  <strong>Option2:</strong>
+  <%= @question.option2 %>
+</p>
+
+<p>
+  <strong>Option3:</strong>
+  <%= @question.option3 %>
+</p>
+
+<p>
+  <strong>Option4:</strong>
+  <%= @question.option4 %>
 </p>
 
 <p>
@@ -22,22 +42,22 @@
 
 <p>
   <strong>Subject:</strong>
-  <%= @question.subject.name %>
+  <%= @question.subject.nil? ? '' : @question.subject.name %>
 </p>
 
 <p>
   <strong>Chapter:</strong>
-  <%= @question.chapter.name %>
+  <%= @question.chapter.nil? ? '' : @question.chapter.name %>
 </p>
 
 <p>
   <strong>Topic:</strong>
-  <%= @question.topic.name %>
+  <%= @question.topic.nil? ? '' : @question.topic.name %>
 </p>
 
 <p>
   <strong>Sub Topic:</strong>
-  <%= @question.sub_topic.name %>
+  <%= @question.sub_topic.nil? ? '' : @question.sub_topic.name %>
 </p>
 
 <%= link_to 'Edit', edit_question_path(@question) %> |

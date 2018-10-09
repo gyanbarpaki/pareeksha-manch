@@ -38,7 +38,7 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.create(question_params)
-    @question.type = question_params[:type]
+
     @question.subject = Subject.find(params[:subject])
     @question.chapter = Chapter.find(params[:chapter])
     @question.topic = Topic.find(params[:topic])
@@ -59,7 +59,7 @@ class QuestionsController < ApplicationController
   # PATCH/PUT /questions/1.json
   def update
     respond_to do |format|
-      if @question.update(question_params)
+      if @question.update_attributes(question_params)
         @question.subject = Subject.find(params[:subject])
         @question.chapter = Chapter.find(params[:chapter])
         @question.topic = Topic.find(params[:topic])
@@ -93,6 +93,6 @@ class QuestionsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def question_params
-    params.require(:question).permit(:content, :type, :solution, :difficulty)
+    params.require(:question).permit(:content, :qns_type, :solution, :difficulty, :option1, :option2, :option3, :option4, :solution)
   end
 end

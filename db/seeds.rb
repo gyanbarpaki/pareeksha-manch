@@ -22,3 +22,17 @@
 end
 
 User.create!(name: "Test Login", email: "test@123", password: "test@123")
+
+(1..5).each do |q|
+  first_sub, sec_sub = Subject.first, Subject.last
+
+  Question.create!(
+    content: "Ques #{q}",
+    difficulty: (q % 2 == 0) ? 'Medium' : 'Hard',
+    solution: "Ans #{q}",
+    option1: "Qns #{q} Option 1",
+    option2: "Qns #{q} Option 2",
+    option3: "Qns #{q} Option 3",
+    option4: "Qns #{q} Option 4"
+  )
+end

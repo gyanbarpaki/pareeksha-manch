@@ -7,7 +7,6 @@ QNS_COLS = {
   option1: 7, option2: 8, option3: 9, option4: 10, correct_option: 11
 }.freeze
 
-
 namespace :import do
   desc "Import Questions from Excel Sheet"
 

@@ -43,10 +43,9 @@ ActiveRecord::Schema.define(version: 2018_10_10_011935) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string "name"
+    t.string "content"
     t.string "qns_type", default: "Objective"
     t.string "difficulty", default: "Medium"
-    t.string "content"
     t.string "solution"
     t.string "option1"
     t.string "option2"
@@ -106,8 +105,8 @@ ActiveRecord::Schema.define(version: 2018_10_10_011935) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

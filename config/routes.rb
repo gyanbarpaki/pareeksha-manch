@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :uploads
   resources :questions
   resources :objective_questions, controller: 'questions', type: 'ObjectiveQuestion'
 

@@ -9,3 +9,5 @@ log/*.log
 tmp/
 vm_provisioning/ssh/id_rsa
 vm_provisioning/ssh/id_rsa.pub
+storage/
+public/assets

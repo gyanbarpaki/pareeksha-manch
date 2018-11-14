@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'questions_imports/new'
+  get 'questions_imports/create'
   resources :questions
   resources :objective_questions, controller: 'questions', type: 'ObjectiveQuestion'
 
@@ -19,4 +21,6 @@ Rails.application.routes.draw do
   root to: 'visitors#index'
   devise_for :users
   resources :users
+
+  resources :questions_imports, only: [:new, :create]
 end
